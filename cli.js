@@ -39,7 +39,17 @@ switch (command) {
       if (error) {
         console.log("Error occur: " + data);
       } else {
-        console.info("Successfully created a menu!");
+        switch(data.errcode) {
+          case 0:
+          case '0':
+            console.info("Successfully created a menu!");
+            console.info(JSON.stringify(data));
+            break;
+          default :
+            console.info("Menu creation failed!");
+            console.info(data.errmsg);
+            break;
+        }
       }
     });
     break;
@@ -48,7 +58,7 @@ switch (command) {
   case 'customize':
     nodeWeixinMenu[command](app, auth, function(error, json) {
       if (error) {
-        console.log("Error occur: " + json);
+        console.log("Error occur: " + JSON.stringify(json));
       } else {
         console.info("Action " + command + " succeeded.");
         console.info(JSON.stringify(json));
