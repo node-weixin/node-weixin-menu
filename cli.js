@@ -29,13 +29,7 @@ var command = cli.input[0];
 switch (command) {
   case 'create':
     var menu = cli.flags.menu;
-    var filename = null;
-    if (path.isAbsolute(menu)) {
-      filename = path.normalize(menu);
-    } else {
-      filename = path.resolve(__dirname, menu);
-    }
-    console.log(filename);
+    var filename = path.resolve(menu);
     if (!fs.existsSync(filename)) {
       console.error("File: " + menu + " not exists");
       return;
