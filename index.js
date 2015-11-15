@@ -9,7 +9,7 @@ module.exports = {
   create: function (app, auth, data, cb) {
     auth.determine(app, function() {
       var url = baseUrl + 'create' + '?' + util.toParam({
-          access_token: auth.accessToken
+          access_token: app.auth.accessToken
         });
       request.json(url, data, cb);
     });
@@ -17,7 +17,7 @@ module.exports = {
   remove: function(app, auth, cb) {
     auth.determine(app, function() {
       var url = baseUrl + 'delete' + '?' + util.toParam({
-          access_token: auth.accessToken
+          access_token: app.auth.accessToken
         });
       request.json(url, null, cb);
     });
@@ -25,7 +25,7 @@ module.exports = {
   get: function(app, auth, cb) {
     auth.determine(app, function() {
       var url = baseUrl + 'get' + '?' + util.toParam({
-          access_token: auth.accessToken
+          access_token: app.auth.accessToken
         });
       request.json(url, null, cb);
     });
@@ -34,7 +34,7 @@ module.exports = {
   customize: function(app, auth, cb) {
     auth.determine(app, function() {
       var url = customUrl + '?' + util.toParam({
-          access_token: auth.accessToken
+          access_token: app.auth.accessToken
         });
       request.json(url, null, cb);
     });
