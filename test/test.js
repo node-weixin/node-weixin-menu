@@ -2,16 +2,17 @@
 var assert = require('assert');
 var nodeWeixinMenu = require('../');
 
+var app = {
+  id: process.env.APP_ID,
+  secret: process.env.APP_SECRET,
+  token: process.env.APP_TOKEN
+};
+var auth = require("node-weixin-auth");
+var config = require("node-weixin-config");
+config.app.init(app);
+
 describe('node-weixin-menu node module', function () {
 
-  var app = {
-    id: process.env.APP_ID,
-    secret: process.env.APP_SECRET,
-    token: process.env.APP_TOKEN
-  };
-  var auth = require("node-weixin-auth");
-  var config = require("node-weixin-config");
-  config.app.init(app);
 
   it('should be able to create menu', function (done) {
     var menu = {
