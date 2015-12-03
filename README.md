@@ -117,7 +117,7 @@ $ wxmenu create --id WX_ID --secret WX_SECRET --token WX_TOKEN --menu menu.json
 
 ## License
 
-MIT © [calidion](blog.3gcnbeta.com)
+MIT © [node-weixin](www.node-weixin.com)
 
 
 [npm-image]: https://badge.fury.io/js/node-weixin-menu.svg
