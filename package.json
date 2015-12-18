@@ -1,6 +1,6 @@
 {
   "name": "node-weixin-menu",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Menu Operations for weixin",
   "author": {
     "name": "calidion",
@@ -22,8 +22,10 @@
   "dependencies": {
     "meow": "^3.1.0",
     "node-form-validator": "^0.2.0",
+    "node-weixin-auth": "^0.2.7",
     "node-weixin-config": "^0.2.0",
     "node-weixin-request": "^0.3.1",
+    "node-weixin-settings": "0.0.6",
     "node-weixin-util": "0.2.0"
   },
   "devDependencies": {

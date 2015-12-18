@@ -5,9 +5,6 @@ var nodeWeixinMenu = require('./');
 var config = require('node-weixin-config');
 var path = require("path");
 var fs = require("fs");
-
-var auth = require('node-weixin-auth').create();
-
 var cli = meow({
   help: [
     'Usage',
@@ -35,7 +32,7 @@ switch (command) {
       return;
     }
     var json = JSON.parse(String(fs.readFileSync(menu)));
-    nodeWeixinMenu.create(app, auth, json, function(error, data) {
+    nodeWeixinMenu.create(app, json, function(error, data) {
       if (error) {
         console.log("Error occur: " + data);
       } else {
@@ -56,7 +53,7 @@ switch (command) {
   case 'get':
   case 'remove':
   case 'customize':
-    nodeWeixinMenu[command](app, auth, function(error, json) {
+    nodeWeixinMenu[command](app, function(error, json) {
       if (error) {
         console.log("Error occur: " + JSON.stringify(json));
       } else {
