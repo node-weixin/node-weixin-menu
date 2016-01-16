@@ -8,41 +8,27 @@ var baseUrl = 'https://api.weixin.qq.com/cgi-bin/menu/';
 var customUrl = 'https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info';
 
 module.exports = {
-  create: function (app, data, cb) {
+  _send: function(url, app, data, cb) {
     auth.determine(app, function() {
-      var authData = settings.get(app.id, 'auth');
-      var url = baseUrl + 'create' + '?' + util.toParam({
-          access_token: authData.accessToken
-        });
-      request.json(url, data, cb);
+      settings.get(app.id, 'auth', function(authData) {
+        var newUrl = url + util.toParam({
+            access_token: authData.accessToken
+          });
+        request.json(newUrl, data, cb);
+      });
     });
+  },
+  create: function (app, data, cb) {
+    this._send(baseUrl + 'create' + '?', app, data, cb);
   },
   remove: function(app, cb) {
-    auth.determine(app, function() {
-      var authData = settings.get(app.id, 'auth');
-      var url = baseUrl + 'delete' + '?' + util.toParam({
-          access_token: authData.accessToken
-        });
-      request.json(url, null, cb);
-    });
+    this._send(baseUrl + 'delete' + '?', app, null, cb);
   },
   get: function(app, cb) {
-    auth.determine(app, function() {
-      var authData = settings.get(app.id, 'auth');
-      var url = baseUrl + 'get' + '?' + util.toParam({
-          access_token: authData.accessToken
-        });
-      request.json(url, null, cb);
-    });
+    this._send(baseUrl + 'get' + '?', app, null, cb);
   },
 
   customize: function(app, cb) {
-    auth.determine(app, function() {
-      var authData = settings.get(app.id, 'auth');
-      var url = customUrl + '?' + util.toParam({
-          access_token: authData.accessToken
-        });
-      request.json(url, null, cb);
-    });
+    this._send(customUrl + '?', app, null, cb);
   }
 };
