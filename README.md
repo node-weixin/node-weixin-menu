@@ -69,26 +69,57 @@ var auth = require("node-weixin-auth");
 var config = require("node-weixin-config");
 config.app.init(app);
 
-nodeWeixinMenu.create(app, auth, menu, function (error, data) {
+
+  var menu = {
+      "button": [
+        {
+          "type": "view",
+          "name": "我要下单",
+          "url": "http://www.soso.com/"
+        },
+        {
+          "name": "菜单",
+          "sub_button": [
+            {
+              "type": "view",
+              "name": "搜索",
+              "url": "http://www.soso.com/"
+            },
+            {
+              "type": "view",
+              "name": "视频",
+              "url": "http://v.qq.com/"
+            },
+            {
+              "type": "click",
+              "name": "赞一下我们",
+              "key": "V1001_GOOD"
+            }
+          ]
+        }
+      ]
+    };
+
+nodeWeixinMenu.create(app, menu, function (error, data) {
   //error === true
   //data.errcode === 0
   //data.errmsg === 'ok'
 });
 
-nodeWeixinMenu.get(app, auth, function (error, data) {
+nodeWeixinMenu.get(app, function (error, data) {
   //error === true
   //typeof data.menu
   //typeof data.menu.button
 });
 
-nodeWeixinMenu.customize(app, auth, function (error, data) {
+nodeWeixinMenu.customize(app, function (error, data) {
   //error === true
   //data.is_menu_open === 1
   //data.selfmenu_info
   //data.selfmenu_info.button
 });
 
-nodeWeixinMenu.remove(app, auth, function (error, data) {
+nodeWeixinMenu.remove(app, function (error, data) {
   //error === true
   //data.errcode
   //data.errmsg
