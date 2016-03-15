@@ -19,6 +19,7 @@
     "node"
   ],
   "devDependencies": {
+    "eslint-config-xo": "^0.12.0",
     "eslint-config-xo-space": "^0.11.0",
     "gulp": "^3.9.0",
     "gulp-coveralls": "^0.1.0",
