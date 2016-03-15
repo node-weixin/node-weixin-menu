@@ -1,6 +1,5 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coveralls Status][coveralls-image]][coveralls-url]
-
-> Menu Operations for weixin
+# node-weixin-menu [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+> Menu apis for weixin
 
 微信菜单API和命令行工具
 
@@ -142,13 +141,13 @@ $ wxmenu customize --id WX_ID --secret WX_SECRET --token WX_TOKEN
 $#删除菜单
 $ wxmenu remove --id WX_ID --secret WX_SECRET --token WX_TOKEN
 $#创建菜单
-$ wxmenu create --id WX_ID --secret WX_SECRET --token WX_TOKEN --menu menu.json 
+$ wxmenu create --id WX_ID --secret WX_SECRET --token WX_TOKEN --menu menu.json
 ```
 注：使用时需要将WX_ID, WX_SECRET, WX_TOKEN,替换成你自己的真实参数
 
 ## License
 
-MIT © [node-weixin](www.node-weixin.com)
+Apache-2.0 © [calidion](calidion.github.io)
 
 
 [npm-image]: https://badge.fury.io/js/node-weixin-menu.svg
@@ -157,5 +156,5 @@ MIT © [node-weixin](www.node-weixin.com)
 [travis-url]: https://travis-ci.org/node-weixin/node-weixin-menu
 [daviddm-image]: https://david-dm.org/node-weixin/node-weixin-menu.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/node-weixin/node-weixin-menu
-[coveralls-image]: https://coveralls.io/repos/node-weixin/node-weixin-menu/badge.svg?branch=master&service=github
-[coveralls-url]: https://coveralls.io/github/node-weixin/node-weixin-menu?branch=master
+[coveralls-image]: https://coveralls.io/repos/node-weixin/node-weixin-menu/badge.svg
+[coveralls-url]: https://coveralls.io/r/node-weixin/node-weixin-menu

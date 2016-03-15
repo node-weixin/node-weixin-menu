@@ -1,47 +1,40 @@
 'use strict';
+/* eslint camelcase: [2, {properties: "never"}] */
+
 var assert = require('assert');
-var nodeWeixinMenu = require('../');
+var nodeWeixinMenu = require('../lib/index');
 
 var app = {
   id: process.env.APP_ID,
   secret: process.env.APP_SECRET,
   token: process.env.APP_TOKEN
 };
-var config = require("node-weixin-config");
+var config = require('node-weixin-config');
 config.app.init(app);
 
 describe('node-weixin-menu node module', function () {
-
-
   it('should be able to create menu', function (done) {
     var menu = {
-      "button": [
-        {
-          "type": "view",
-          "name": "我要下单",
-          "url": "http://www.soso.com/"
-        },
-        {
-          "name": "菜单",
-          "sub_button": [
-            {
-              "type": "view",
-              "name": "搜索",
-              "url": "http://www.soso.com/"
-            },
-            {
-              "type": "view",
-              "name": "视频",
-              "url": "http://v.qq.com/"
-            },
-            {
-              "type": "click",
-              "name": "赞一下我们",
-              "key": "V1001_GOOD"
-            }
-          ]
-        }
-      ]
+      button: [{
+        type: 'view',
+        name: '我要下单',
+        url: 'http://www.soso.com/'
+      }, {
+        name: '菜单',
+        sub_button: [{
+          type: 'view',
+          name: '搜索',
+          url: 'http://www.soso.com/'
+        }, {
+          type: 'view',
+          name: '视频',
+          url: 'http://v.qq.com/'
+        }, {
+          type: 'click',
+          name: '赞一下我们',
+          key: 'V1001_GOOD'
+        }]
+      }]
     };
     nodeWeixinMenu.create(app, menu, function (error, data) {
       assert.equal(true, !error);
@@ -81,33 +74,26 @@ describe('node-weixin-menu node module', function () {
 
   it('should be able to create menu', function (done) {
     var menu = {
-      "button": [
-        {
-          "type": "view",
-          "name": "我要下单",
-          "url": "http://www.soso.com/"
-        },
-        {
-          "name": "菜单",
-          "sub_button": [
-            {
-              "type": "view",
-              "name": "搜索",
-              "url": "http://www.soso.com/"
-            },
-            {
-              "type": "view",
-              "name": "视频",
-              "url": "http://v.qq.com/"
-            },
-            {
-              "type": "click",
-              "name": "赞一下我们",
-              "key": "V1001_GOOD"
-            }
-          ]
-        }
-      ]
+      button: [{
+        type: 'view',
+        name: '我要下单',
+        url: 'http://www.soso.com/'
+      }, {
+        name: '菜单',
+        sub_button: [{
+          type: 'view',
+          name: '搜索',
+          url: 'http://www.soso.com/'
+        }, {
+          type: 'view',
+          name: '视频',
+          url: 'http://v.qq.com/'
+        }, {
+          type: 'click',
+          name: '赞一下我们',
+          key: 'V1001_GOOD'
+        }]
+      }]
     };
     nodeWeixinMenu.create(app, menu, function (error, data) {
       assert.equal(true, !error);
