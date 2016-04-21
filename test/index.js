@@ -3,6 +3,7 @@
 
 var assert = require('assert');
 var nodeWeixinMenu = require('../lib/index');
+var settings = require('node-weixin-settings');
 
 var app = {
   id: process.env.APP_ID,
@@ -36,7 +37,7 @@ describe('node-weixin-menu node module', function () {
         }]
       }]
     };
-    nodeWeixinMenu.create(app, menu, function (error, data) {
+    nodeWeixinMenu.create(settings, app, menu, function (error, data) {
       assert.equal(true, !error);
       assert.equal(true, data.errcode === 0);
       assert.equal(true, data.errmsg === 'ok');
@@ -45,7 +46,7 @@ describe('node-weixin-menu node module', function () {
   });
 
   it('should be able to get the menu', function (done) {
-    nodeWeixinMenu.get(app, function (error, data) {
+    nodeWeixinMenu.get(settings, app, function (error, data) {
       assert.equal(true, !error);
       assert.equal(true, typeof data.menu === 'object');
       assert.equal(true, typeof data.menu.button === 'object');
@@ -54,7 +55,7 @@ describe('node-weixin-menu node module', function () {
   });
 
   it('should be able to get custom menu', function (done) {
-    nodeWeixinMenu.customize(app, function (error, data) {
+    nodeWeixinMenu.customize(settings, app, function (error, data) {
       assert.equal(true, !error);
       assert.equal(true, data.is_menu_open === 1);
       assert.equal(true, typeof data.selfmenu_info === 'object');
@@ -64,7 +65,7 @@ describe('node-weixin-menu node module', function () {
   });
 
   it('should be able to remove the menu', function (done) {
-    nodeWeixinMenu.remove(app, function (error, data) {
+    nodeWeixinMenu.remove(settings, app, function (error, data) {
       assert.equal(true, !error);
       assert.equal(true, data.errcode === 0);
       assert.equal(true, data.errmsg === 'ok');
@@ -95,7 +96,7 @@ describe('node-weixin-menu node module', function () {
         }]
       }]
     };
-    nodeWeixinMenu.create(app, menu, function (error, data) {
+    nodeWeixinMenu.create(settings, app, menu, function (error, data) {
       assert.equal(true, !error);
       assert.equal(true, data.errcode === 0);
       assert.equal(true, data.errmsg === 'ok');
