@@ -9,7 +9,9 @@
 1. 菜单API共计4个(create, get, customize, remove)
 2. 命令行工具(wxmenu)
 
- 交流QQ群: 39287176
+### 开发与交流论坛
+
+http://forum.node-weixin.com/
 
 注:
 
@@ -100,6 +102,7 @@ config.app.init(app);
     };
 
 ```
+
 #### 创建菜单
 
 ```js
@@ -158,6 +161,7 @@ $ wxmenu remove --id WX_ID --secret WX_SECRET --token WX_TOKEN
 $#创建菜单
 $ wxmenu create --id WX_ID --secret WX_SECRET --token WX_TOKEN --menu menu.json
 ```
+
 注：使用时需要将WX_ID, WX_SECRET, WX_TOKEN,替换成你自己的真实参数
 
 ## License
