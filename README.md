@@ -99,31 +99,46 @@ config.app.init(app);
       ]
     };
 
+```
+#### 创建菜单
+
+```js
 nodeWeixinMenu.create(app, menu, function (error, data) {
   //error === true
   //data.errcode === 0
   //data.errmsg === 'ok'
 });
+```
 
+#### 获取菜单
+
+```js
 nodeWeixinMenu.get(app, function (error, data) {
   //error === true
   //typeof data.menu
   //typeof data.menu.button
 });
+```
 
+#### 定制菜单信息
+
+```js
 nodeWeixinMenu.customize(app, function (error, data) {
   //error === true
   //data.is_menu_open === 1
   //data.selfmenu_info
   //data.selfmenu_info.button
 });
+```
 
+#### 删除菜单
+
+```js
 nodeWeixinMenu.remove(app, function (error, data) {
   //error === true
   //data.errcode
   //data.errmsg
 });
-
 ```
 
 
