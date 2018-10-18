@@ -68,6 +68,7 @@ var app = {
 
 var auth = require("node-weixin-auth");
 var config = require("node-weixin-config");
+var settings = require('node-weixin-settings');
 config.app.init(app);
 
 
@@ -106,7 +107,7 @@ config.app.init(app);
 #### 创建菜单
 
 ```js
-nodeWeixinMenu.create(app, menu, function (error, data) {
+nodeWeixinMenu.create(settings, app, menu, function (error, data) {
   //error === true
   //data.errcode === 0
   //data.errmsg === 'ok'
@@ -116,7 +117,7 @@ nodeWeixinMenu.create(app, menu, function (error, data) {
 #### 获取菜单
 
 ```js
-nodeWeixinMenu.get(app, function (error, data) {
+nodeWeixinMenu.get(settings, app, function (error, data) {
   //error === true
   //typeof data.menu
   //typeof data.menu.button
@@ -126,7 +127,7 @@ nodeWeixinMenu.get(app, function (error, data) {
 #### 定制菜单信息
 
 ```js
-nodeWeixinMenu.customize(app, function (error, data) {
+nodeWeixinMenu.customize(settings, app, function (error, data) {
   //error === true
   //data.is_menu_open === 1
   //data.selfmenu_info
@@ -137,7 +138,7 @@ nodeWeixinMenu.customize(app, function (error, data) {
 #### 删除菜单
 
 ```js
-nodeWeixinMenu.remove(app, function (error, data) {
+nodeWeixinMenu.remove(settings, app, function (error, data) {
   //error === true
   //data.errcode
   //data.errmsg
